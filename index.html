@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container{
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input{
+            padding: 15px;
+            border: none;
+            background-color: gainsboro;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button{
+            padding: 15px;
+            border: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result{
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            height: 400px;
+            width: 500px;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2{
+            font-size: 35px;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        p{
+            text-align: center;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Find Maharashtra Best Cites</h1> 
+        <input type="text" id="input-box" placeholder="Enter your city">
+        <button id="btn" onclick="getData()">Get Data</button>
+        <div id="result"></div>
+    </div>
+   
+
+
+
+
+<script>
+    const maharashtraBestCities = {
+    Ahilyanagar : {
+        state: "Maharashtra",
+        country: "India",
+        population: "20 million",
+        description: "Home to Ahmednagar Fort, where Jawaharlal Nehru wrote Discovery of India Historical significance and famous for the Ralegan Siddhi model village",
+    },
+    Ratnagiri: {
+        state: "Maharashtra",
+        country: "India",
+        population: "15 million",
+        description: "Beautiful coastal city with stunning beaches,Historic forts like Ratnadurg and Thibaw Palace",
+    },
+    Jalgaon: {
+        state: "Maharashtra",
+        country: "India",
+        population: "22 million",
+        description: "Major banana-producing region in India,Ajanta Caves nearby, a UNESCO World Heritage Site",
+    },
+    mumbai: {
+        state: "Maharashtra",
+        country: "India",
+        population: "20 million",
+        description: "Mumbai, the capital of Maharashtra, is India's financial hub and home to Bollywood. It is famous for its fast-paced lifestyle, stunning beaches, and diverse street food scene.",
+    },
+    pune: {
+        state: "Maharashtra",
+        country: "India",
+        population: "7.4 million",
+        description: "Pune is known as the 'Oxford of the East' due to its prestigious educational institutions. It has a vibrant IT sector, pleasant weather, and a rich historical and cultural heritage.",
+    },
+    nagpur: {
+        state: "Maharashtra",
+        country: "India",
+        population: "2.9 million",
+        description: "Nagpur, also called the 'Orange City,' is known for its oranges and as a major trade center. It is the winter capital of Maharashtra and a gateway to wildlife sanctuaries.",
+    },
+    nashik: {
+        state: "Maharashtra",
+        country: "India",
+        population: "1.8 million",
+        description: "Nashik is famous for its vineyards and is often referred to as the 'Wine Capital of India.' It is also a major pilgrimage site, hosting the Kumbh Mela every 12 years.",
+    },
+    aurangabad: {
+        state: "Maharashtra",
+        country: "India",
+        population: "1.2 million",
+        description: "Aurangabad is a historical city known for its UNESCO World Heritage Sites, including the Ajanta and Ellora caves. It is an important center for tourism and culture.",
+    },
+    solapur: {
+        state: "Maharashtra",
+        country: "India",
+        population: "1 million",
+        description: "Solapur is an important textile hub, famous for its chaddars and towels. It has significant religious sites, including temples and dargahs, and a strong sugar industry.",
+    },
+    kolhapur: {
+        state: "Maharashtra",
+        country: "India",
+        population: "1.2 million",
+        description: "Kolhapur is renowned for its traditional leather chappals, spicy cuisine, and rich history. It has a strong wrestling culture and is home to the famous Mahalakshmi Temple.",
+    },
+};
+
+
+function getData() {
+    const inputBox = document.getElementById("input-box").value.toLowerCase();
+    const resultDiv = document.getElementById("result");
+
+
+    if (!inputBox) {
+        alert("Please enter a city name!");
+        return;
+    }
+
+    if (maharashtraBestCities[inputBox]) {
+        const city = maharashtraBestCities[inputBox];
+        resultDiv.innerHTML = `
+            <h2>${inputBox}</h2>
+            <p>State: ${city.state}</p>
+            <p>Country: ${city.country}</p>
+            <p>Population: ${city.population}</p>
+            <p>Description: ${city.description}</p>
+        `;
+    } else {
+        alert("city not found")
+    }
+}
+
+
+</script>
+</body>
+</html>
